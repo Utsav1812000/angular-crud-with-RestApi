@@ -1,0 +1,24 @@
+<h2 class="text-center mt-1 text-success">List All User</h2>
+
+<table *ngIf="users.length>0" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td><a routerLink="../editApi/{{user.id}}" class="btn btn-warning">Edit</a></td>
+            <td><button mat-raised-button color="warn" (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>

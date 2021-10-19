@@ -1,0 +1,24 @@
+<h2>Welcome </h2>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td><button (click)="editUser(user.userId)" mat-raised-button color="primary">Edit</button></td>
+            <td><button (click)="deleteUser(user.userId)" mat-raised-button color="primary">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>

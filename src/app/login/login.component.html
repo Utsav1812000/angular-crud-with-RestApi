@@ -1,0 +1,26 @@
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-4 border bg-light" >
+
+            <h1 class="text-center">Login Here</h1>
+            <div *ngIf="flag">
+                <!-- {{msg}} -->
+                <br>
+            </div>
+
+                <div class="mb-3">
+                  <label  class="form-label">Email address</label>
+                  <input type="email" [(ngModel)]="email" class="form-control" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Password</label>
+                  <input type="password" [(ngModel)]="password" class="form-control" >
+                </div>
+                <button type="submit" mat-raised-button color="accent" (click)="authenticate()" class="mb-3" >Login</button>
+
+        </div>
+    </div>
+</div>
+<!-- <button type="button" (click)="authenticate()">Submit</button> -->

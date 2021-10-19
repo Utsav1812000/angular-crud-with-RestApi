@@ -1,0 +1,51 @@
+  <h3 class="text-center">SignUp Api</h3>
+  <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-4 border bg-light" >
+
+            <h1 class="text-center">Register Here</h1>
+                <!-- <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" [(ngModel)]="firstName" class="form-control" required>
+                  </div>
+                <div class="mb-3">
+                  <label  class="form-label">Email address</label>
+                  <input type="email" [(ngModel)]="email" class="form-control" aria-describedby="emailHelp" required>
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Password</label>
+                  <input type="password" [(ngModel)]="password" class="form-control" required>
+                </div>
+                <button type="submit" mat-raised-button color="accent" (click)="RegisterUser()" class="mb-3" >Submit</button> -->
+            
+
+            <!-- Using Reactive form -->
+
+            <form [formGroup]="myForm" (ngSubmit)="RegisterUser()">
+              <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control">
+                  <span class="text-danger" *ngIf="myForm.get('firstName')?.touched && !myForm.get('firstName')?.valid" >Name should not empty</span>
+                </div>
+              <div class="mb-3">
+                <label  class="form-label">Email address</label>
+                <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <span *ngIf="myForm.get('email')?.touched && myForm.get('email')?.hasError('required')" style="color: red;">Email should not be empty</span>
+                <span *ngIf="myForm.get('email')?.hasError('email')" style="color: red;">Enter Valid Formate</span>
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">Password</label>
+                <input type="password" formControlName="password" class="form-control">
+                <span *ngIf="myForm.get('password')?.touched && myForm.get('password')?.hasError('required')" style="color: red;">Password should not be empty</span>
+                <span *ngIf="myForm.get('password')?.hasError('pattern')" style="color: red;">password must be eight characters including one uppercase letter,lowercase,one special character and alphanumeric characters?</span>
+              </div>
+              <button type="submit" mat-raised-button color="accent" [disabled]="!myForm.valid" class="mb-3" >Submit</button>
+              <button type="button" (click)="test()" >Home</button>
+          </form>
+
+        </div>
+    </div>
+</div>
